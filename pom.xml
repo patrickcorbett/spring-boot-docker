@@ -15,17 +15,17 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 
-		<!--set this to your docker acct name-->
+		<!--set this to your docker acct name -->
 		<docker.image.prefix>springframeworkguru</docker.image.prefix>
 
-		<!--Set to name of project-->
+		<!--Set to name of project -->
 		<docker.image.name>springbootdocker</docker.image.name>
 
 	</properties>
@@ -45,14 +45,14 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
-		<!--testing deps-->
+		<!--testing deps -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -66,17 +66,17 @@
 
 				<configuration>
 
-                    <!--<dockerHost>http://127.0.0.1:2375</dockerHost>-->
-                    <dockerHost>unix:///var/run/docker.sock</dockerHost>
+					<dockerHost>http://192.168.2.119:2375</dockerHost>
+					<!-- <dockerHost>unix:///var/run/docker.sock</dockerHost> -->
 
-                    <verbose>true</verbose>
+					<verbose>true</verbose>
 					<images>
 						<image>
 							<name>${docker.image.prefix}/${docker.image.name}</name>
 							<build>
 								<dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
 
-                                <!--copies artficact to docker build dir in target-->
+								<!--copies artficact to docker build dir in target -->
 								<assembly>
 									<descriptorRef>artifact</descriptorRef>
 								</assembly>
@@ -91,6 +91,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 
 </project>
