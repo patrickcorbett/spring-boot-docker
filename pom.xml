@@ -66,8 +66,12 @@
 
 				<configuration>
 
-                    <!--<dockerHost>http://127.0.0.1:2375</dockerHost>-->
-                    <dockerHost>unix:///var/run/docker.sock</dockerHost>
+					<!--
+						docker host seems to not be required, works without defining
+						it se https://maven.fabric8.io/ search for 'dockerHost'
+					-->
+                    <!-- <dockerHost>http://host.docker.internal:2375</dockerHost> -->
+                    <!-- <dockerHost>unix:///var/run/docker.sock</dockerHost> -->
 
                     <verbose>true</verbose>
 					<images>
@@ -76,7 +80,7 @@
 							<build>
 								<dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
 
-                                <!--copies artficact to docker build dir in target-->
+                                <!--copies artifact to docker build dir in target-->
 								<assembly>
 									<descriptorRef>artifact</descriptorRef>
 								</assembly>
