@@ -1,4 +1,4 @@
-FROM openjdk
+FROM eclipse-temurin:8
 
 VOLUME /tmp
 ADD maven/spring-boot-docker-0.0.1-SNAPSHOT.jar myapp.jar
